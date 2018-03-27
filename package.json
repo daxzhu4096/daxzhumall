@@ -1,0 +1,36 @@
+{
+  "name": "emall",
+  "version": "1.0.0",
+  "description": "实现一个电商网站的前端代码",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daxzhu4096/emall.git"
+  },
+  "keywords": [],
+  "author": "daxzhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daxzhu4096/emall/issues"
+  },
+  "homepage": "https://github.com/daxzhu4096/emall#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.1.0",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.2"
+  },
+  "dependencies": {}
+}
