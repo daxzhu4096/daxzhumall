@@ -2,7 +2,7 @@
  * @Author: daxzhu 
  * @Date: 2018-03-27 18:42:58 
  * @Last Modified by: daxzhu
- * @Last Modified time: 2018-03-27 18:56:52
+ * @Last Modified time: 2018-03-28 17:23:20
  */
 'use strict'
 const Hogan = require("hogan")
@@ -54,10 +54,43 @@ var _mm = {
   doLogin(){
     window.location.href = './login.html?redirect='+ encodeURIComponent(window.location.href)
   },
+  //
+  goHome(){
+    window.location.href = './index.html'
+  },
   //渲染 HTML
   renderHtml(htmlTemplate,data){
     var template = Hogan.compile(htmlTemplate);//编译
     return template.render(data) //渲染
+  },
+  //成功提示
+  successTips(msg){
+    alert(msg||"操作成功")
+  },
+  // 错误提示
+  errorTips(msg){
+    alert(msg||"好像哪里不对~~")
+  },
+  // 字段验证 支持是否为空、手机、邮箱
+  validate(value,type){
+    var value = $.trim(value),flag
+    switch (type) {
+      case 'require':
+      //非空验证
+        flag = !!value
+        break
+      case 'phone':
+      //手机号码验证
+        flag = /^1\d{10}/.test(value)
+        break
+      case 'email':
+      //邮箱格式验证（HTML5）？
+        flag = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(value)
+        break
+      default:
+        break
+    }
+    return flag
   }
 }
 

@@ -1,0 +1,22 @@
+/*
+ * @Author: daxzhu 
+ * @Date: 2018-03-29 00:22:44 
+ * @Last Modified by: daxzhu
+ * @Last Modified time: 2018-03-29 00:26:50
+ */
+ .footer{
+   padding-bottom: 10px;
+ }
+.links{
+  text-align: center;
+  color: #666;
+  line-height: 30px;
+}
+.links .link{
+  padding: 0 10px;
+}
+.footer .copyright{
+  text-align: center;
+  color: #666;
+  line-height: 30px;
+}

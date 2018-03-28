@@ -2,10 +2,12 @@
  * @Author: daxzhu 
  * @Date: 2018-03-26 11:12:49 
  * @Last Modified by: daxzhu
- * @Last Modified time: 2018-03-27 02:15:32
+ * @Last Modified time: 2018-03-29 00:10:28
  */
 'use strict'
 const _mm = require('util/mm.js')
+require("page/common/nav/index.js")
+require("node_modules/font-awesome/css/font-awesome.min.css")
 // _mm.request({
 //   url: '/product/list.do?keyword=1',
 //   success(res){
@@ -17,9 +19,9 @@ const _mm = require('util/mm.js')
 
 // })
 // console.log(_mm.getUrlParam("test"))
-var html = '<div>{{data}}</div>';
-var data = {
-  data: 123
-}
+// var html = '<div>{{data}}</div>';
+// var data = {
+//   data: 123
+// }
 
-console.log(_mm.renderHtml(html, data))
+// console.log(_mm.renderHtml(html, data))

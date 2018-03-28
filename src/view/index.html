@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<%= require("html-loader!./layout/head.html")%>
+<head>
+  <%= require("html-loader!./layout/head-common.html")%>
+  <title>emall电商平台</title>
+</head>
 
 <body>
-  hello webpack-dev-server~~~~ hello123
+    <%= require("html-loader!./layout/nav.html")%>
   <div id="app"></div>
+  <%= require("html-loader!./layout/footer.html")%>
 </body>
 
 </html>

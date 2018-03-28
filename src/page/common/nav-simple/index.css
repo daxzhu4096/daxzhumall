@@ -1,0 +1,18 @@
+/*
+ * @Author: daxzhu 
+ * @Date: 2018-03-28 23:46:38 
+ * @Last Modified by: daxzhu
+ * @Last Modified time: 2018-03-28 23:59:58
+ */
+.nav-simple{
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+.nav-simple .logo{
+  font-size: 26px;
+  font-weight: bold;
+  color: #c60023;
+  text-decoration: none;
+}
