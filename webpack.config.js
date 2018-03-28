@@ -77,5 +77,13 @@ module.exports = {
     getHtmlConfig("index"),
     getHtmlConfig("login"),
     // new CleanWebpackPlugin(["dist"])
-  ]
+  ],
+  resolve: {
+    alias: {
+      util    : __dirname + '/src/util',
+      page    : __dirname + '/src/page',
+      service : __dirname + '/src/service',
+      image   : __dirname + '/src/image'
+    }
+  }
 }
