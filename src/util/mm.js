@@ -2,7 +2,7 @@
  * @Author: daxzhu 
  * @Date: 2018-03-27 18:42:58 
  * @Last Modified by: daxzhu
- * @Last Modified time: 2018-03-28 17:23:20
+ * @Last Modified time: 2018-03-29 17:10:26
  */
 'use strict'
 const Hogan = require("hogan")
@@ -45,7 +45,7 @@ var _mm = {
     return conf.serverHost + path
   },
   // 获取 url 参数
-  getUrlParam(){
+  getUrlParam(name){
     var reg = new RegExp('(^|&)'+ name + '=([^&]*)(&|$)')
     var result = window.location.search.substr(1).match(reg)
     return result ? decodeURIComponent(result[2]) : null

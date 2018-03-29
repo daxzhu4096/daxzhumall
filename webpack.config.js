@@ -4,13 +4,14 @@ const extractTextPlugin = require("extract-text-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 
-const getHtmlConfig = function (name) {
+const getHtmlConfig = function (name,title) {
   return new HtmlWebpackPlugin({
     template: `./src/view/${name}.html`,
     filename: `view/${name}.html`,
     chunks: ["common", name],
     hash: true,
-    inject: true
+    inject: true,
+    title: title
   })
 }
 //环境变量的配置：为了区分打包时是处在线上环境还是开发环境
@@ -21,7 +22,8 @@ module.exports = {
   entry: {
     "common": "./src/page/common/index.js",
     "index": ['./src/page/index/index.js'],
-    "login": "./src/page/login/index.js"
+    "login": "./src/page/login/index.js",
+    "result": './src/page/result/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -41,8 +43,11 @@ module.exports = {
       })
     },
     {
-      test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
+      test: /\.(gif|png|jpg|wof|svg|eot|ttf)\??.*$/,
       use: ["url-loader?limit=8192&name=resource/[name].[ext]"]
+    },{
+      test: /\.string$/,
+      use: ["html-loader"]
     }]
   },
   externals: {
@@ -74,8 +79,9 @@ module.exports = {
           hash: true,
           inject: true
         }) */
-    getHtmlConfig("index"),
-    getHtmlConfig("login"),
+    getHtmlConfig("index","首页"),
+    getHtmlConfig("login","用户登陆"),
+    getHtmlConfig("result","操作结果")
     // new CleanWebpackPlugin(["dist"])
   ],
   resolve: {
