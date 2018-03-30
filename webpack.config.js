@@ -4,7 +4,7 @@ const extractTextPlugin = require("extract-text-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 
-const getHtmlConfig = function (name,title) {
+const getHtmlConfig = function(name, title) {
   return new HtmlWebpackPlugin({
     template: `./src/view/${name}.html`,
     filename: `view/${name}.html`,
@@ -22,18 +22,24 @@ module.exports = {
   entry: {
     "common": "./src/page/common/index.js",
     "index": ['./src/page/index/index.js'],
-    "login": "./src/page/login/index.js",
-    "result": './src/page/result/index.js'
+    "user-login": "./src/page/user-login/index.js",
+    "result": './src/page/result/index.js',
+    "user-register": "./src/page/user-register/index.js"
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: "/",
     filename: "js/[name]bundle.js"
   },
-  devServer:{
+  devServer: {
     contentBase: './dist',
     compress: true,
-    port: 8088
+    port: 8088,
+    // proxy: {
+    //   "/user": {
+    //     target: "http://www.happymmall.com"
+    //   }
+    // }
   },
   module: {
     rules: [{
@@ -41,11 +47,10 @@ module.exports = {
       use: extractTextPlugin.extract({
         use: ["css-loader"]
       })
-    },
-    {
+    }, {
       test: /\.(gif|png|jpg|wof|svg|eot|ttf)\??.*$/,
       use: ["url-loader?limit=8192&name=resource/[name].[ext]"]
-    },{
+    }, {
       test: /\.string$/,
       use: ["html-loader"]
     }]
@@ -69,7 +74,7 @@ module.exports = {
           filename: "view/index.html",
           chunks: ["common","index"],
           hash: true,
-          inject: true
+  inject: true
         }),
         // Html 模板
         new HtmlWebpackPlugin({
@@ -79,18 +84,19 @@ module.exports = {
           hash: true,
           inject: true
         }) */
-    getHtmlConfig("index","首页"),
-    getHtmlConfig("login","用户登陆"),
-    getHtmlConfig("result","操作结果")
+    getHtmlConfig("index", "首页"),
+    getHtmlConfig("user-login", "用户登陆"),
+    getHtmlConfig("result", "操作结果"),
+    getHtmlConfig("user-register", "用户注册")
     // new CleanWebpackPlugin(["dist"])
   ],
   resolve: {
     alias: {
-      util            : __dirname + '/src/util',
-      page            : __dirname + '/src/page',
-      service         : __dirname + '/src/service',
-      image           : __dirname + '/src/image',
-      node_modules    : __dirname + '/node_modules'
+      util: __dirname + '/src/util',
+      page: __dirname + '/src/page',
+      service: __dirname + '/src/service',
+      image: __dirname + '/src/image',
+      node_modules: __dirname + '/node_modules'
     }
   }
 }
